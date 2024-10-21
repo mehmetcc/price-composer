@@ -1,5 +1,3 @@
-from concurrent.futures import thread
-from functools import lru_cache
 from typing import Annotated, Dict
 from fastapi import Depends, FastAPI, WebSocket
 from price_composer.dependencies import get_symbols
