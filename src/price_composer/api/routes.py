@@ -16,7 +16,7 @@ async def root() -> Dict[str, str]:
 async def stock(symbols: Annotated[Symbols, Depends(get_symbols)]) -> list[str]:
     return symbols.stocks
 
-@app.websocket('/ws')
+@app.websocket('/api/v1/ws')
 async def prices(websocket: WebSocket, symbols: Annotated[Symbols, Depends(get_symbols)]) -> None:
     await websocket.accept()
 
