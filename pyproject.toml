@@ -11,6 +11,7 @@ python = "^3.13"
 yfinance = "^0.2.44"
 fastapi = {extras = ["standard"], version = "^0.115.2"}
 pydantic-settings = "^2.6.0"
+websockets = "^13.1"
 
 [tool.poetry.scripts]
 start = "src.price_composer.main:start"
