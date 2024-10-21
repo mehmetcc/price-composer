@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "price-composer"
+version = "0.1.0"
+description = ""
+authors = ["mehmetcc <mehmetccm@gmail.com>"]
+readme = "README.md"
+packages = [{include = "price_composer", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+yfinance = "^0.2.44"
+fastapi = {extras = ["standard"], version = "^0.115.2"}
+pydantic-settings = "^2.6.0"
+
+[tool.poetry.scripts]
+start = "src.price_composer.main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
