@@ -1,12 +1,24 @@
 from typing import Annotated, Dict
 from fastapi import Depends, FastAPI, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
 from price_composer.dependencies import get_symbols
 from price_composer.resolver.symbol_resolver import get_latest_stock_prices
 import asyncio
 
 from ..utils.symbols import Symbols
 
+origins = [
+    "http://localhost:3000"
+]
+
+
 app = FastAPI()
+app.add_middleware(CORSMiddleware, 
+                   allow_origins=origins, 
+                   allow_credentials=True, 
+                   allow_methods=["*"],
+                   allow_headers=["*"],)
+
 
 @app.get('/')
 async def root() -> Dict[str, str]:
