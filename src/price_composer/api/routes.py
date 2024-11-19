@@ -21,5 +21,5 @@ async def prices(websocket: WebSocket, symbols: Annotated[Symbols, Depends(get_s
     await websocket.accept()
 
     while True:
-        await asyncio.sleep(60)
+        await asyncio.sleep(10)
         await websocket.send_json(get_latest_stock_prices(symbols.stocks))
